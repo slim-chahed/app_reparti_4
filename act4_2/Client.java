@@ -13,9 +13,9 @@ public class Client {
 		// TODO Auto-generated method stub
 		try {
         DatagramSocket clientSocket = new DatagramSocket();
-        InetAddress serverAddress = InetAddress.getByName("localhost"); // Ici, "localhost" signifie que le serveur est sur la même machine
-        int serverPort = 1234; // Port du serveur
-
+        InetAddress serverAddress = InetAddress.getByName("localhost"); 
+        // Ici, "localhost" signifie que le serveur est sur la même machine
+        int serverPort = 1236;
 		String heureMessage = "quelle heure est-il";
         byte[] sendheureMessage = heureMessage.getBytes();
         DatagramPacket sendPacketHeure = new DatagramPacket(sendheureMessage, sendheureMessage.length, serverAddress, serverPort);
@@ -23,7 +23,8 @@ public class Client {
         // Réception de la réponse du serveur
         byte[] receiveHeure = new byte[1024];
         DatagramPacket receivePacket1 = new DatagramPacket(receiveHeure, receiveHeure.length);
-        clientSocket.receive(receivePacket1); // Attends la réponse du serveur
+        clientSocket.receive(receivePacket1); 
+        // Attends la réponse du serveur
         // Convertit la réponse en une chaîne de caractères
         String serverResponse1 = new String(receivePacket1.getData(), 0, receivePacket1.getLength());
         System.out.println(serverResponse1);

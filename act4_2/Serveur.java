@@ -12,16 +12,10 @@ public class Serveur {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			 int serverPort = 1234;
-			 // Définit le port sur lequel le serveur écoute
+			    int serverPort = 1236;
 	            DatagramSocket serverSocket = new DatagramSocket(serverPort);
-	            // Crée une socket pour le serveur
-
 	            System.out.println("Le serveur est en attente de connexions..."); 
-	            // Affiche un message indiquant que le serveur est en attente de connexions
-
 	            while (true) { 
-	            	// Boucle infinie pour gérer les connexions entrantes
 	            	
 	                byte[] receiveHeure = new byte[1024];
 	                // Crée un tableau de bytes pour stocker les données reçues
@@ -29,7 +23,6 @@ public class Serveur {
 	                // Crée un paquet pour recevoir des données
 	                serverSocket.receive(receivePacketHeure); 
 	                // Attend la réception de données depuis un client
-
 	                String clientMessageHeure = new String(receivePacketHeure.getData(), 0, receivePacketHeure.getLength());
 	                System.out.println(clientMessageHeure);
 	                String heureResponse ="Heure:  "+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
